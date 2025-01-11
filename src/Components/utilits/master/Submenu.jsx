@@ -18,7 +18,7 @@ const Submenu = async({data,id}) => {
                         const category = data.find(value => value.type === type);
                         return (
                             <li className='ml-3'>
-                                <Link  key={"1"} href={`http://localhost:3000/product/categoryById/${id}?type=${type}`}>{type}</Link>
+                                <Link  key={value._id} href={`http://localhost:3000/product/categoryById/${id}?type=${type}`}>{type}</Link>
                             </li>
                         );
                     })

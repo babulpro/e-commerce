@@ -22,7 +22,7 @@ const Page = async() => {
                         return(
                             <div>
 
-                                <Link key={value._id} href={`/product/productBySingleId/${value.productId}`}>                            
+                                <Link key={index} href={`/product/productBySingleId/${value.productId}`}>                            
                                     <div className=' w-full p-3 hover:bg-slate-500 flex justify-between'>
                                         <h1>Items:<span className='text-xl lg:2xl underline'>{value.name}</span></h1>
                                         <h1>Price: <span className='text-xl lg:2xl underline text-orange-950'>{value.price}</span></h1>
