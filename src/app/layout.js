@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "react-hot-toast";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +26,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+         <NextTopLoader color="#fff" height={10} speed={200} />
         {children}
+          <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
