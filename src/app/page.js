@@ -8,7 +8,8 @@ import React from 'react';
   return (
     <PlainLayout>
       <div className=" py-2 "> 
-        <Product data={data}/>
+        {/* <Product data={data}/> */}
+        this is the home page
 
         </div>
     </PlainLayout>
