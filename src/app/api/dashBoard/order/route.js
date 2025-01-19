@@ -5,7 +5,6 @@ import  Product  from '@/app/lib/model/product/product';
 
 export async function POST(req) {
     const data = await req.json(); 
-   
     await dbConnect();
   
      
@@ -56,6 +55,8 @@ export async function DELETE(req) {
     await dbConnect();
   
     const result = await Order.find({})
+            .populate('productId', '-__v -createdAt -updatedAt') // Populates product data, excluding some fields
+            .exec();
     if(!result){
        
         return NextResponse.json({ status: "false", msg: error.message }, { status: 400 });

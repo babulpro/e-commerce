@@ -8,11 +8,11 @@ export async function POST(req) {
     
     await dbConnect();
   
-     const findData = await Payment.findOne({ userId:data.userId })
+     const findData = await Payment.findOne({ orderId:data.orderId })
          if(!findData){
              try {
-               const newUser = await Payment.create({ ...data }); 
-               const response = NextResponse.json({ msg: "category created successful", status: "ok" }); 
+               const newPayment = await Payment.create({ ...data }); 
+               const response = NextResponse.json({ status: "success", data: newPayment }); 
                return response;
        
                

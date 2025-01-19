@@ -25,28 +25,38 @@ export async function POST(req) {
    
   
   }
-export async function DELETE(req) {
-    const data = await req.json(); 
-    
-    await dbConnect();
-  
-     
-        try {
-           
-          const newProduct = await Cart.deleteOne({_id:data.cartId}); 
-          const response = NextResponse.json({ status:"success" ,data:newProduct}); 
-          return response;
-  
-          
-        } catch (error) {
-          return NextResponse.json({ status: "false", msg: error.message }, { status: 400 });
-        }
-  
-    
-   
-  
-  }
 
+  
+  export async function PUT(req) {
+    try {
+        const data = await req.json(); // Parse the request body
+        if (!data.chartId) {
+            return NextResponse.json(
+                { status: "false", msg: "cartId is required" },
+                { status: 400 }
+            );
+        }
+
+        await dbConnect(); // Connect to the database
+
+        const result = await Cart.deleteOne({ _id: data.chartId }); // Delete the document
+
+        if (result.deletedCount === 0) {
+            return NextResponse.json(
+                { status: "false", msg: "No document found with the provided ID" },
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json({ status: "success", data: result });
+    } catch (error) {
+        console.error("DELETE Error:", error);
+        return NextResponse.json(
+            { status: "false", msg: error.message },
+            { status: 500 }
+        );
+    }
+}
 
 
   export async function GET(req) { 
