@@ -2,9 +2,10 @@ import Image from 'next/image';
 import React from 'react';
 
 const Product = ({data}) => {
+ 
     return (
-        <div className='container m-auto mt-2'>
-            <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+        <div className='container m-auto'>
+            <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
                 {data.length > 0 && data.map((item,index)=>( 
                     <div key={index} className='card bordered'>
                         <figure>
@@ -12,8 +13,7 @@ const Product = ({data}) => {
                         </figure>
                         <div className='card-body'>
                             <h2 className='card-title'>{item.name}</h2>
-                            <p>{item.price}</p>
-                            <button className='btn btn-primary'>Add to Cart</button>
+                            <p>BD: {item.price} Only</p>
                         </div>
                     </div>
                 ))}

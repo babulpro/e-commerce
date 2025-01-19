@@ -1,10 +1,18 @@
- import React from 'react';
+ import getData from '@/components/allFunction/getData';
+import PlainLayout from '@/components/Master/PlainLayout';
+import Product from '@/components/utilits/Product';
+import React from 'react';
  
- const Page = () => {
+ const Page =async () => {
+  let data= await getData("http://localhost:3000/api/dashBoard/product");
   return (
-    <div>
-      this is the main page
-    </div>
+    <PlainLayout>
+      <div className=" py-2 "> 
+        <Product data={data}/>
+
+        </div>
+    </PlainLayout>
+    
   );
  };
  
