@@ -3,7 +3,7 @@ import React from 'react';
 
 const Product = ({data}) => {
     return (
-        <div>
+        <div className='container m-auto mt-2'>
             <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
                 {data.length > 0 && data.map((item,index)=>( 
                     <div key={index} className='card bordered'>

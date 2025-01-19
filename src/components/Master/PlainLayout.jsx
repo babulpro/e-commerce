@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
 import Profile from '../utilits/Profile';
+import getData from '../allFunction/getData';
+import Footer from './Footer';
 
-const PlainLayout = ({children,data}) => {
+const PlainLayout =async ({children}) => {
+    let data = await getData("http://localhost:3000/api/dashBoard/category");
    
     return (
-        <div className="mb-14 bg-slate-400">
-            <div className="navbar bg-base-100">
+        <div className=" bg-slate-400 ">
+            <div className="navbar bg-base-100 fixed w-full z-50 top-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -75,7 +78,10 @@ const PlainLayout = ({children,data}) => {
             </div>   
             <div className="container mx-auto">
                 {children}
-            </div>         
+            </div> 
+            <div>
+                <Footer/>
+            </div>        
         </div>
     );
 };
