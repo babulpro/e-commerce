@@ -1,14 +1,23 @@
  import React from 'react'; 
-import getData from '../allFunction/getData';
 import Footer from './Footer';
 import MainNavBar from './MainNavBar';
 
+
+async function getData() {
+    let category =(await(await fetch('http://localhost:3000/api/dashBoard/category')).json()).data
+    
+    
+    return{
+        category 
+}
+}
+
 const PlainLayout =async ({children}) => {
-    let data = await getData("http://localhost:3000/api/dashBoard/category");
+    let data = await getData();
    
     return (
         <div className=" bg-slate-400 ">
-            <MainNavBar data={data}/>
+            <MainNavBar data={data.category}/>
              <div className='mt-20'>
                
                 {children}
