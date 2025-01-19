@@ -8,10 +8,7 @@ export default function Home({children}) {
     <div >
        
          hello babul
-       
-      
-  
-           
+         ;e commerce again for youxz
    
        
     </div>
